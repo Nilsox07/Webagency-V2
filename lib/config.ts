@@ -12,7 +12,7 @@
 export const siteConfig = {
   // Marke
   name: "Klarweb", // TODO: echter Agenturname
-  legalName: "Klarweb – Jens Haake", // TODO: vollständiger Rechtsname (Einzelunternehmen)
+  legalName: "Klarweb", // TODO: vollständiger Rechtsname (z. B. „Klarweb – Vorname Nachname" beim Einzelunternehmen)
   tagline: "Feste Preise. Feste Termine. Keine Überraschungen.",
   description:
     "Festpreis-Webdesign für lokale Unternehmen: professionelle Websites mit transparenten Paketpreisen ab 990 €. Briefing in Minuten – geführt von KI-Assistentin Lumi.",
@@ -21,7 +21,7 @@ export const siteConfig = {
 
   // Inhaber (Solo-Unternehmer – wichtig für E-E-A-T)
   owner: {
-    name: "Jens Haake", // TODO
+    name: "[Dein Name]", // TODO: echten Inhaber-Namen eintragen
     role: "Inhaber & Webdesigner",
     bioShort:
       "Ich baue seit über 8 Jahren Websites für lokale Unternehmen – als Ein-Personen-Agentur, unterstützt durch KI. Das macht mich schnell, persönlich und planbar.",
