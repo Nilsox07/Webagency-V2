@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LumiWidget } from "@/components/lumi/LumiWidget";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { JsonLd, organizationSchema, websiteSchema } from "@/components/JsonLd";
 
 const inter = Inter({
@@ -55,11 +56,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Zum Hauptinhalt springen
         </a>
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <Header />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
         <LumiWidget />
       </body>
     </html>
