@@ -21,7 +21,7 @@ export default function KontaktPage() {
         title="Lass uns sprechen"
         intro="Du hast Fragen zu einem Paket oder deinem Projekt? Schreib mir – ich antworte in der Regel innerhalb von einem Werktag, persönlich."
         breadcrumbs={[{ name: "Kontakt", path: "/kontakt" }]}
-        accent="#1A8C94"
+        accent="#B6FF3B"
       />
       <Section>
         <Container>
@@ -63,7 +63,7 @@ export default function KontaktPage() {
                 </p>
                 <a
                   href="/briefing"
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-lumi-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-lumi-700"
+                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-lumi-600 px-5 py-2.5 text-sm font-semibold text-brand-900 hover:bg-lumi-700"
                 >
                   <Icon name="chat" className="h-4 w-4" /> Briefing mit Lumi
                 </a>

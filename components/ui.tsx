@@ -82,7 +82,7 @@ const buttonStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
     "bg-brand-600 text-white hover:bg-brand-700 shadow-sm shadow-brand-600/20",
   secondary:
     "bg-white text-brand-700 ring-1 ring-inset ring-brand-200 hover:bg-brand-50",
-  lumi: "bg-lumi-600 text-white hover:bg-lumi-700 shadow-sm shadow-lumi-600/20",
+  lumi: "bg-lumi-600 text-brand-900 hover:bg-lumi-700 shadow-sm shadow-lumi-600/20",
   ghost: "text-brand-700 hover:bg-brand-50",
 };
 
@@ -138,7 +138,7 @@ export function Badge({
 }) {
   const tones = {
     brand: "bg-brand-50 text-brand-700 ring-brand-200",
-    lumi: "bg-lumi-50 text-lumi-700 ring-lumi-200",
+    lumi: "bg-lumi-100 text-brand-900 ring-lumi-300",
     green: "bg-emerald-50 text-emerald-700 ring-emerald-200",
   };
   return (

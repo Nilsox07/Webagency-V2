@@ -29,8 +29,8 @@ export default function BriefingPage({
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
           {/* Info-Spalte */}
           <div className="lg:pt-6">
-            <span className="inline-flex items-center gap-2 rounded-full bg-lumi-100 px-3 py-1 text-sm font-semibold text-lumi-700">
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-lumi-600 text-xs font-bold text-white">
+            <span className="inline-flex items-center gap-2 rounded-full bg-lumi-100 px-3 py-1 text-sm font-semibold text-brand-900">
+              <span className="grid h-6 w-6 place-items-center rounded-full bg-lumi-600 text-xs font-bold text-brand-900">
                 L
               </span>
               Lumi · KI-Briefing-Assistentin
@@ -51,7 +51,7 @@ export default function BriefingPage({
                 { icon: "shieldCheck", t: "DSGVO-konform", d: "Deine Angaben nutzen wir nur für deine Anfrage." },
               ].map((item) => (
                 <li key={item.t} className="flex items-start gap-3">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white text-lumi-600 shadow-sm">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white text-brand-700 shadow-sm">
                     <Icon name={item.icon} className="h-5 w-5" />
                   </span>
                   <div>

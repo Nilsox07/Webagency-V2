@@ -53,12 +53,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           { name: "Leistungen", path: "/leistungen" },
           { name: service.title, path: `/leistungen/${service.slug}` },
         ]}
-        accent="#1A8C94"
+        accent="#B6FF3B"
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <a
             href="/briefing"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-600 px-6 py-3 font-semibold text-white transition hover:bg-lumi-500"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-600 px-6 py-3 font-semibold text-brand-900 transition hover:bg-lumi-500"
           >
             <Icon name="chat" className="h-5 w-5" /> Briefing starten
           </a>

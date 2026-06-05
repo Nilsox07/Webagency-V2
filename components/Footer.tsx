@@ -95,7 +95,7 @@ export function Footer() {
             </ul>
             <Link
               href="/briefing"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-lumi-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-lumi-700"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-lumi-600 px-4 py-2.5 text-sm font-semibold text-brand-900 hover:bg-lumi-700"
             >
               <Icon name="chat" className="h-4 w-4" />
               Briefing mit Lumi

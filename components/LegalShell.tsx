@@ -17,7 +17,7 @@ export function LegalShell({
 }) {
   return (
     <>
-      <PageHero title={title} breadcrumbs={[{ name: title, path }]} accent="#1A8C94" />
+      <PageHero title={title} breadcrumbs={[{ name: title, path }]} accent="#B6FF3B" />
       <Container className="py-12">
         <div className="mx-auto max-w-3xl">
           {updated && <p className="text-sm text-slate-400">Zuletzt aktualisiert: {updated}</p>}

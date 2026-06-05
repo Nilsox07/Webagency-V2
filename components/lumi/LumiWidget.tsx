@@ -18,14 +18,14 @@ export function LumiWidget() {
           role="dialog"
           aria-label="Briefing mit Lumi"
         >
-          <div className="flex items-center justify-between rounded-t-2xl bg-lumi-600 px-4 py-3 text-white">
+          <div className="flex items-center justify-between rounded-t-2xl bg-lumi-600 px-4 py-3 text-brand-900">
             <div className="flex items-center gap-2">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white/20 font-bold">
                 L
               </span>
               <div className="leading-tight">
                 <p className="text-sm font-semibold">Lumi</p>
-                <p className="text-[11px] text-lumi-100">KI-Briefing-Assistentin</p>
+                <p className="text-[11px] text-brand-800">KI-Briefing-Assistentin</p>
               </div>
             </div>
             <button
@@ -42,7 +42,7 @@ export function LumiWidget() {
           <div className="border-t border-slate-100 px-4 py-2 text-center">
             <Link
               href="/briefing"
-              className="text-xs font-medium text-lumi-700 hover:underline"
+              className="text-xs font-medium text-brand-700 hover:underline"
               onClick={() => setOpen(false)}
             >
               Lieber im Vollbild briefen? →
@@ -54,7 +54,7 @@ export function LumiWidget() {
       {/* Button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-5 right-4 z-50 flex items-center gap-2 rounded-full bg-lumi-600 px-4 py-3.5 font-semibold text-white shadow-lg shadow-lumi-600/30 transition hover:bg-lumi-700 sm:right-6"
+        className="fixed bottom-5 right-4 z-50 flex items-center gap-2 rounded-full bg-lumi-600 px-4 py-3.5 font-semibold text-brand-900 shadow-lg shadow-lumi-600/30 transition hover:bg-lumi-700 sm:right-6"
         aria-expanded={open}
         aria-label={open ? "Lumi-Chat schließen" : "Briefing mit Lumi starten"}
       >

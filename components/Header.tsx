@@ -19,11 +19,11 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-900/90 backdrop-blur">
       <nav className="container-content flex h-16 items-center justify-between gap-4" aria-label="Hauptnavigation">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-slate-900">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white">
+        <Link href="/" className="flex items-center gap-2 font-bold text-white">
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-lumi-600 text-brand-900">
             <Icon name="layout" className="h-5 w-5" />
           </span>
           <span className="text-lg">{siteConfig.name}</span>
@@ -41,7 +41,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700"
+                  className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white"
                   aria-expanded={servicesOpen}
                   aria-haspopup="true"
                 >
@@ -76,7 +76,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -89,13 +89,13 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/briefing"
-            className="hidden rounded-xl bg-lumi-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-lumi-700 sm:inline-flex"
+            className="hidden rounded-xl bg-lumi-600 px-4 py-2 text-sm font-semibold text-brand-900 transition hover:bg-lumi-700 sm:inline-flex"
           >
             Briefing starten
           </Link>
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-50 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-lg text-slate-200 hover:bg-white/10 lg:hidden"
             onClick={() => setMobileOpen((v) => !v)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -108,12 +108,12 @@ export function Header() {
 
       {/* Mobile-Navigation */}
       {mobileOpen && (
-        <div id="mobile-menu" className="border-t border-slate-200 bg-white lg:hidden">
+        <div id="mobile-menu" className="border-t border-white/10 bg-brand-900 lg:hidden">
           <ul className="container-content flex flex-col gap-1 py-4">
             <li>
               <Link
                 href="/leistungen"
-                className="block rounded-lg px-3 py-2 font-medium text-slate-800 hover:bg-slate-50"
+                className="block rounded-lg px-3 py-2 font-medium text-slate-100 hover:bg-white/10"
                 onClick={() => setMobileOpen(false)}
               >
                 Leistungen (Übersicht)
@@ -123,7 +123,7 @@ export function Header() {
               <li key={s.slug}>
                 <Link
                   href={`/leistungen/${s.slug}`}
-                  className="block rounded-lg px-6 py-2 text-sm text-slate-600 hover:bg-slate-50"
+                  className="block rounded-lg px-6 py-2 text-sm text-slate-300 hover:bg-white/10"
                   onClick={() => setMobileOpen(false)}
                 >
                   {s.title}
@@ -136,7 +136,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block rounded-lg px-3 py-2 font-medium text-slate-800 hover:bg-slate-50"
+                    className="block rounded-lg px-3 py-2 font-medium text-slate-100 hover:bg-white/10"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}
@@ -146,7 +146,7 @@ export function Header() {
             <li className="mt-2">
               <Link
                 href="/briefing"
-                className="block rounded-xl bg-lumi-600 px-4 py-3 text-center font-semibold text-white"
+                className="block rounded-xl bg-lumi-600 px-4 py-3 text-center font-semibold text-brand-900"
                 onClick={() => setMobileOpen(false)}
               >
                 Briefing mit Lumi starten

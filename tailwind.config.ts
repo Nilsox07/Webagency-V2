@@ -9,36 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Marke: tiefes Petrol/Teal (Struktur, Primär, Sekundär) – WCAG-AA-geprüft
-        // 600 = Petrol (#0E5C63, primär), 700 = Petrol dunkel (#0A444A, hover),
-        // 500 = Teal hell (#1A8C94, sekundär)
+        // Marke: tiefes Navy (Grundfarbe – Header, Footer, dunkle Sektionen, Hero, Logo).
+        // 900 = Navy-Basis (#07111F), 700 = Navy hell/Hover (#0F1F33),
+        // 600 = mittleres Navy für Primär-Buttons/Links auf Hell (weißer Text lesbar).
         brand: {
-          50: "#ECF6F6",
-          100: "#D2E9EA",
-          200: "#A8D4D6",
-          300: "#74B9BD",
-          400: "#3DA1A8",
-          500: "#1A8C94",
-          600: "#0E5C63",
-          700: "#0A444A",
-          800: "#093A3F",
-          900: "#082F33",
-          950: "#03191B",
+          50: "#EEF1F6",
+          100: "#D7DEEA",
+          200: "#B3C0D6",
+          300: "#8497B7",
+          400: "#51648A",
+          500: "#2C3F60",
+          600: "#182B47",
+          700: "#0F1F33",
+          800: "#0A1626",
+          900: "#07111F",
+          950: "#04090F",
         },
-        // Akzent: warme Koralle – NUR für CTAs / wichtigste Hinweise (10%-Regel).
-        // 600 = Koralle (#E55340), 700 = Koralle dunkel (#C9402F, hover)
+        // Akzent: Signal-Lime. NUR für Akzente/Haupt-CTA (10%-Regel).
+        // WICHTIG: Lime-Flächen IMMER mit Navy-Text (text-brand-900), nie weiß.
+        // Lime als Text nur auf Navy. 600 = Lime (#B6FF3B), 700 = Hover (#9BE01F).
         lumi: {
-          50: "#FDEEEB",
-          100: "#FBD9D3",
-          200: "#F6B7AC",
-          300: "#F0907F",
-          400: "#EB6E59",
-          500: "#E85D49",
-          600: "#E55340",
-          700: "#C9402F",
-          800: "#A5341F",
-          900: "#87291A",
-          950: "#4A130B",
+          50: "#F6FFE4",
+          100: "#ECFFC8",
+          200: "#DCFF98",
+          300: "#CCFF68",
+          400: "#C0FF48",
+          500: "#BBFF40",
+          600: "#B6FF3B",
+          700: "#9BE01F",
+          800: "#79B216",
+          900: "#5A8511",
+          950: "#324A09",
         },
       },
       fontFamily: {

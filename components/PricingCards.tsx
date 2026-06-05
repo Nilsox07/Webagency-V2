@@ -53,7 +53,7 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
             href={`/briefing?paket=${p.id}`}
             className={`mt-6 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
               p.recommended
-                ? "bg-lumi-600 text-white hover:bg-lumi-700"
+                ? "bg-lumi-600 text-brand-900 hover:bg-lumi-700"
                 : "bg-brand-50 text-brand-700 hover:bg-brand-100"
             }`}
           >

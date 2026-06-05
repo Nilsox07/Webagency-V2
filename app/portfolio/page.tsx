@@ -19,7 +19,7 @@ export default function PortfolioPage() {
         title="Websites, die für ihre Branche funktionieren"
         intro="Von der Handwerker-Website bis zur Praxis mit Online-Terminbuchung – jedes Projekt ist auf die Branche und das Ziel zugeschnitten und mit dem passenden Festpreis-Paket umgesetzt."
         breadcrumbs={[{ name: "Referenzen", path: "/portfolio" }]}
-        accent="#1A8C94"
+        accent="#B6FF3B"
       />
       <Section>
         <Container>

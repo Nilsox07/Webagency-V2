@@ -43,7 +43,7 @@ export default function UeberMichPage() {
         title={`Hallo, ich bin ${siteConfig.owner.name}.`}
         intro={siteConfig.owner.bioShort}
         breadcrumbs={[{ name: "Über mich", path: "/ueber-mich" }]}
-        accent="#1A8C94"
+        accent="#B6FF3B"
       />
 
       <Section>

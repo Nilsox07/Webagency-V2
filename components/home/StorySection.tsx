@@ -54,7 +54,7 @@ export function StorySection() {
   const bg = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#1c0f12", "#06181A", "#082F33"]
+    ["#1c0f12", "#0A1626", "#07111F"]
   );
 
   // Problem-Headline raus, Lösungs-Headline rein
@@ -67,7 +67,7 @@ export function StorySection() {
   return (
     <section ref={ref} className="relative h-[320vh]" aria-label="Vom Angebotschaos zur Klarheit">
       <m.div
-        style={{ backgroundColor: reduce ? "#082F33" : bg }}
+        style={{ backgroundColor: reduce ? "#07111F" : bg }}
         className="sticky top-0 flex h-[100svh] items-center justify-center overflow-hidden"
       >
         {/* Glühen */}
@@ -101,7 +101,7 @@ export function StorySection() {
           <p className="text-sm font-semibold uppercase tracking-widest text-brand-300">Die Lösung</p>
           <h2 className="mt-4 max-w-4xl text-4xl font-bold text-white sm:text-6xl">
             Feste Preise. Feste Termine.{" "}
-            <span className="bg-gradient-to-r from-brand-300 to-lumi-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-lumi-300 to-lumi-500 bg-clip-text text-transparent">
               Klarheit.
             </span>
           </h2>
@@ -124,7 +124,7 @@ export function StorySection() {
         <div className="absolute bottom-10 left-1/2 h-1 w-40 -translate-x-1/2 overflow-hidden rounded-full bg-white/10">
           <m.div
             style={{ scaleX: scrollYProgress }}
-            className="h-full w-full origin-left bg-gradient-to-r from-brand-400 to-lumi-400"
+            className="h-full w-full origin-left bg-gradient-to-r from-lumi-500 to-lumi-300"
           />
         </div>
       </m.div>

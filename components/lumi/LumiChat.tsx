@@ -114,7 +114,7 @@ export function LumiChat({ initialPackage, compact = false }: LumiChatProps) {
             >
               <span className="flex items-center justify-between">
                 <span className="font-semibold text-slate-900">{p.name}</span>
-                <span className="text-sm font-semibold text-lumi-700">
+                <span className="text-sm font-semibold text-brand-700">
                   {p.priceFrom ? "ab " : ""}
                   {formatEuro(p.price)}
                 </span>
@@ -140,7 +140,7 @@ export function LumiChat({ initialPackage, compact = false }: LumiChatProps) {
     <div className="flex h-full flex-col">
       {/* Kopf mit Paket + Live-Preis */}
       <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-lumi-50 px-2.5 py-1 text-xs font-semibold text-lumi-700">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-lumi-50 px-2.5 py-1 text-xs font-semibold text-brand-700">
           Paket {pkg.name}
         </span>
         {estimate && (
@@ -162,7 +162,7 @@ export function LumiChat({ initialPackage, compact = false }: LumiChatProps) {
         {messages.map((m, i) => (
           <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
             {m.role === "assistant" && (
-              <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-lumi-600 text-xs font-bold text-white">
+              <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-lumi-600 text-xs font-bold text-brand-900">
                 L
               </span>
             )}
@@ -179,7 +179,7 @@ export function LumiChat({ initialPackage, compact = false }: LumiChatProps) {
         ))}
         {loading && (
           <div className="flex justify-start">
-            <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-lumi-600 text-xs font-bold text-white">
+            <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-lumi-600 text-xs font-bold text-brand-900">
               L
             </span>
             <div className="flex items-center gap-1 rounded-2xl bg-slate-100 px-4 py-3">
@@ -203,7 +203,7 @@ export function LumiChat({ initialPackage, compact = false }: LumiChatProps) {
           <button
             onClick={handleSubmitBriefing}
             disabled={loading}
-            className="w-full rounded-xl bg-lumi-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-lumi-700 disabled:opacity-60"
+            className="w-full rounded-xl bg-lumi-600 px-4 py-3 text-sm font-semibold text-brand-900 transition hover:bg-lumi-700 disabled:opacity-60"
           >
             Briefing absenden
           </button>
@@ -233,7 +233,7 @@ export function LumiChat({ initialPackage, compact = false }: LumiChatProps) {
           <button
             type="submit"
             disabled={loading || !input.trim()}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-lumi-600 text-white transition hover:bg-lumi-700 disabled:opacity-50"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-lumi-600 text-brand-900 transition hover:bg-lumi-700 disabled:opacity-50"
             aria-label="Nachricht senden"
           >
             <Icon name="send" className="h-5 w-5" />

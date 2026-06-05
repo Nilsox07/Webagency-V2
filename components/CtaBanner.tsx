@@ -16,7 +16,7 @@ export function CtaBanner({
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="/briefing"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-500 px-7 py-3.5 font-semibold text-white transition hover:bg-lumi-600"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-500 px-7 py-3.5 font-semibold text-brand-900 transition hover:bg-lumi-600"
           >
             <Icon name="chat" className="h-5 w-5" />
             Briefing mit Lumi starten

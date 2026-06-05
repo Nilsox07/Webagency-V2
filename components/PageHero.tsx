@@ -25,7 +25,7 @@ export function PageHero({
   intro,
   eyebrow,
   breadcrumbs = [],
-  accent = "#1A8C94",
+  accent = "#B6FF3B",
   children,
 }: {
   title: string;
@@ -41,16 +41,16 @@ export function PageHero({
   const full: Crumb[] = [{ name: "Start", path: "/" }, ...breadcrumbs];
 
   return (
-    <section className="relative overflow-hidden bg-slate-950" aria-label={title}>
+    <section className="relative overflow-hidden bg-brand-900" aria-label={title}>
       {/* Tiefen-Verläufe */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,#0E5C6333,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,#E5534022,transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,#0F1F3366,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,#B6FF3B14,transparent_55%)]" />
 
       {/* Animation: Desktop + nach idle = WebGL, sonst leichter CSS-Fallback */}
       {show3D ? <PageHero3D accent={accent} /> : <PageHeroFallback accent={accent} />}
 
       {/* sanfter Abschluss nach unten */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-brand-900 to-transparent" />
 
       <div className="container-content relative z-10 py-14 sm:py-20">
         {/* Breadcrumb (mit JSON-LD) */}

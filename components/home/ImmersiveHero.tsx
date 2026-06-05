@@ -33,18 +33,18 @@ export function ImmersiveHero() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-slate-950"
+      className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-900"
       aria-label="Einleitung"
     >
       {/* Tiefen-Hintergrund */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#0E5C6333,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,#E5534022,transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#0F1F3366,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,#B6FF3B14,transparent_55%)]" />
 
       {/* 3D-Szene: Desktop + nach idle gemountet; sonst leichter CSS-Fallback */}
       {show3D ? <Hero3D /> : <HeroFallback />}
 
       {/* sanfter Abschluss nach unten */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-brand-900 to-transparent" />
 
       {/* Text-Overlay */}
       <m.div style={{ y, opacity }} className="container-content relative z-10">
@@ -66,7 +66,7 @@ export function ImmersiveHero() {
             className="mt-6 text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
             Websites, die{" "}
-            <span className="bg-gradient-to-r from-brand-300 via-lumi-300 to-brand-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-lumi-300 to-lumi-500 bg-clip-text text-transparent">
               umhauen
             </span>
             . Zum Festpreis.
@@ -91,7 +91,7 @@ export function ImmersiveHero() {
           >
             <Link
               href="/briefing"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-lumi-600/30 transition hover:bg-lumi-500"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-600 px-7 py-3.5 font-semibold text-brand-900 shadow-lg shadow-lumi-600/30 transition hover:bg-lumi-500"
             >
               <Icon name="chat" className="h-5 w-5" />
               Briefing mit Lumi starten
