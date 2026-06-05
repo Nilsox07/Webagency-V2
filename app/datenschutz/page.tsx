@@ -60,11 +60,19 @@ export default function DatenschutzPage() {
         Kategorien personenbezogener Daten (Art. 9 DSGVO) an.
       </p>
 
-      <h2>6. Cookies</h2>
+      <h2>6. Cookies & Einwilligung</h2>
       <p>
-        Diese Website setzt grundsätzlich nur technisch notwendige Cookies. Für nicht notwendige
-        Cookies (z. B. Analyse) holen wir vorab deine Einwilligung über ein Cookie-Banner ein. (TODO:
-        an tatsächlich eingesetzte Dienste anpassen.)
+        Diese Website setzt grundsätzlich nur technisch notwendige Cookies/Speichertechniken ein, die
+        für den Betrieb erforderlich sind (Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO bzw. § 25 Abs. 2
+        TDDDG). Nicht notwendige Cookies (z. B. zur Reichweitenmessung/Analyse) laden wir ausschließlich
+        nach deiner ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG), die wir
+        über unseren Cookie-Banner einholen.
+      </p>
+      <p>
+        Deine Auswahl speichern wir lokal in deinem Browser, um sie bei weiteren Besuchen zu
+        berücksichtigen. Du kannst deine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen
+        oder anpassen – über den Link „Cookie-Einstellungen“ im Seitenfuß. (TODO: an die tatsächlich
+        eingesetzten, nicht notwendigen Dienste anpassen.)
       </p>
 
       <h2>7. Deine Rechte</h2>

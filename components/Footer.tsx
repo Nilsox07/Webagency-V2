@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { services } from "@/lib/services";
 import { Icon } from "./Icon";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 
 const legalLinks = [
   { label: "Impressum", href: "/impressum" },
@@ -92,6 +93,9 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton className="text-slate-300 hover:text-white" />
+              </li>
             </ul>
             <Link
               href="/briefing"

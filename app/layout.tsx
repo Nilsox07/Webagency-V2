@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LumiWidget } from "@/components/lumi/LumiWidget";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd, organizationSchema, websiteSchema } from "@/components/JsonLd";
 
 const inter = Inter({
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </SmoothScroll>
         <LumiWidget />
+        <CookieConsent />
       </body>
     </html>
   );
