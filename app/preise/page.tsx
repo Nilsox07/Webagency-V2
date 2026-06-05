@@ -56,7 +56,7 @@ export default function PreisePage() {
         title="Feste Preise. Feste Termine. Keine Überraschungen."
         intro="Eine professionelle Website kostet bei uns ab 990 € – als transparenter Festpreis. Du siehst sofort, was deine Website kostet: kein Angebot abwarten, keine versteckten Kosten. Alle Preise netto zzgl. MwSt."
         breadcrumbs={[{ name: "Pakete & Preise", path: "/preise" }]}
-        accent="#7c4dff"
+        accent="#1A8C94"
       />
 
       {/* KARTEN */}

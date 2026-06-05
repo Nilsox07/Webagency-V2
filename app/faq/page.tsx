@@ -24,7 +24,7 @@ export default function FaqPage() {
         title="Häufige Fragen"
         intro="Hier findest du Antworten auf die wichtigsten Fragen rund um Preise, Ablauf, Wartung und Lumi. Deine Frage ist nicht dabei? Schreib mir einfach."
         breadcrumbs={[{ name: "FAQ", path: "/faq" }]}
-        accent="#7c4dff"
+        accent="#1A8C94"
       />
       <Section>
         <Container>

@@ -7,7 +7,7 @@ import { PageHeroScene } from "./PageHeroScene";
 import { PageHeroFallback } from "./Fallbacks";
 
 /** Leichte WebGL-Szene für Unterseiten-Header (dynamisch, nur Client). */
-export default function PageHero3D({ accent = "#3563f6" }: { accent?: string }) {
+export default function PageHero3D({ accent = "#1A8C94" }: { accent?: string }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(true);

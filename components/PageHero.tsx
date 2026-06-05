@@ -25,7 +25,7 @@ export function PageHero({
   intro,
   eyebrow,
   breadcrumbs = [],
-  accent = "#3563f6",
+  accent = "#1A8C94",
   children,
 }: {
   title: string;
@@ -43,8 +43,8 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden bg-slate-950" aria-label={title}>
       {/* Tiefen-Verläufe */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,#1f43eb33,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,#7c4dff22,transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,#0E5C6333,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,#E5534022,transparent_55%)]" />
 
       {/* Animation: Desktop + nach idle = WebGL, sonst leichter CSS-Fallback */}
       {show3D ? <PageHero3D accent={accent} /> : <PageHeroFallback accent={accent} />}

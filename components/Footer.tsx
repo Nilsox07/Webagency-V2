@@ -22,31 +22,31 @@ const companyLinks = [
 export function Footer() {
   const c = siteConfig.contact;
   return (
-    <footer className="border-t border-slate-200 bg-slate-50" aria-label="Fußbereich">
+    <footer className="border-t border-white/10 bg-brand-900 text-slate-300" aria-label="Fußbereich">
       <div className="container-content py-14">
         <div className="grid gap-10 lg:grid-cols-4">
           {/* Marke + NAP */}
           <div>
-            <div className="flex items-center gap-2 font-bold text-slate-900">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white">
+            <div className="flex items-center gap-2 font-bold text-white">
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-500 text-white">
                 <Icon name="layout" className="h-5 w-5" />
               </span>
               <span className="text-lg">{siteConfig.name}</span>
             </div>
-            <p className="prose-text mt-4 text-sm">{siteConfig.tagline}</p>
-            <address className="mt-4 space-y-1 text-sm not-italic text-slate-600">
+            <p className="mt-4 text-sm text-slate-400">{siteConfig.tagline}</p>
+            <address className="mt-4 space-y-1 text-sm not-italic text-slate-400">
               <p>{siteConfig.legalName}</p>
               <p>{c.street}</p>
               <p>
                 {c.zip} {c.city}
               </p>
               <p className="pt-2">
-                <a href={`mailto:${c.email}`} className="hover:text-brand-700">
+                <a href={`mailto:${c.email}`} className="hover:text-white">
                   {c.email}
                 </a>
               </p>
               <p>
-                <a href={`tel:${c.phone}`} className="hover:text-brand-700">
+                <a href={`tel:${c.phone}`} className="hover:text-white">
                   {c.phoneDisplay}
                 </a>
               </p>
@@ -55,11 +55,11 @@ export function Footer() {
 
           {/* Leistungen */}
           <nav aria-label="Leistungen">
-            <h2 className="text-sm font-semibold text-slate-900">Leistungen</h2>
+            <h2 className="text-sm font-semibold text-white">Leistungen</h2>
             <ul className="mt-4 space-y-2 text-sm">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/leistungen/${s.slug}`} className="text-slate-600 hover:text-brand-700">
+                  <Link href={`/leistungen/${s.slug}`} className="text-slate-300 hover:text-white">
                     {s.title}
                   </Link>
                 </li>
@@ -69,11 +69,11 @@ export function Footer() {
 
           {/* Agentur */}
           <nav aria-label="Agentur">
-            <h2 className="text-sm font-semibold text-slate-900">Agentur</h2>
+            <h2 className="text-sm font-semibold text-white">Agentur</h2>
             <ul className="mt-4 space-y-2 text-sm">
               {companyLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-slate-600 hover:text-brand-700">
+                  <Link href={l.href} className="text-slate-300 hover:text-white">
                     {l.label}
                   </Link>
                 </li>
@@ -83,11 +83,11 @@ export function Footer() {
 
           {/* Rechtliches + CTA */}
           <div>
-            <h2 className="text-sm font-semibold text-slate-900">Rechtliches</h2>
+            <h2 className="text-sm font-semibold text-white">Rechtliches</h2>
             <ul className="mt-4 space-y-2 text-sm">
               {legalLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-slate-600 hover:text-brand-700">
+                  <Link href={l.href} className="text-slate-300 hover:text-white">
                     {l.label}
                   </Link>
                 </li>
@@ -103,7 +103,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 text-sm text-slate-500 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {siteConfig.legalName}. Alle Preise netto zzgl. MwSt.
           </p>

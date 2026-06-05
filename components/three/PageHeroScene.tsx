@@ -9,7 +9,7 @@ import * as THREE from "three";
  * Leichtgewichtige Szene für die Unterseiten-Header (kein Postprocessing).
  * Drahtgitter-Körper + Ring + Partikel, sanfte Maus-Parallaxe. Tönbar per `accent`.
  */
-export function PageHeroScene({ accent = "#3563f6" }: { accent?: string }) {
+export function PageHeroScene({ accent = "#1A8C94" }: { accent?: string }) {
   const group = useRef<THREE.Group>(null);
   const ring = useRef<THREE.Mesh>(null);
 
@@ -29,7 +29,7 @@ export function PageHeroScene({ accent = "#3563f6" }: { accent?: string }) {
     <>
       <ambientLight intensity={0.6} />
       <pointLight position={[4, 3, 4]} intensity={25} color={accent} distance={20} />
-      <pointLight position={[-4, -2, 2]} intensity={20} color="#7c4dff" distance={20} />
+      <pointLight position={[-4, -2, 2]} intensity={20} color="#E55340" distance={20} />
 
       <group ref={group}>
         <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
@@ -38,11 +38,11 @@ export function PageHeroScene({ accent = "#3563f6" }: { accent?: string }) {
           </Icosahedron>
         </Float>
         <Torus ref={ring} args={[2.3, 0.015, 16, 90]} rotation={[Math.PI / 3, 0, 0]}>
-          <meshStandardMaterial color="#9478ff" emissive="#9478ff" emissiveIntensity={0.6} />
+          <meshStandardMaterial color="#3DA1A8" emissive="#3DA1A8" emissiveIntensity={0.6} />
         </Torus>
       </group>
 
-      <Sparkles count={50} scale={[12, 6, 5]} size={2} speed={0.25} color="#bcd3ff" opacity={0.6} />
+      <Sparkles count={50} scale={[12, 6, 5]} size={2} speed={0.25} color="#CFE7E8" opacity={0.6} />
     </>
   );
 }

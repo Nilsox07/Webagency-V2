@@ -53,7 +53,7 @@ function Counter({ value, prefix = "", suffix = "" }: { value: number; prefix?: 
 export function StatsBand() {
   return (
     <section className="relative overflow-hidden bg-slate-950 py-20" aria-label="Auf einen Blick">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#1f43eb33,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#0E5C6333,transparent_60%)]" />
       <div className="container-content relative">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (

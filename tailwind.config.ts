@@ -9,33 +9,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Marke: vertrauensvolles Tiefblau (Transparenz/Seriosität)
+        // Marke: tiefes Petrol/Teal (Struktur, Primär, Sekundär) – WCAG-AA-geprüft
+        // 600 = Petrol (#0E5C63, primär), 700 = Petrol dunkel (#0A444A, hover),
+        // 500 = Teal hell (#1A8C94, sekundär)
         brand: {
-          50: "#eef4ff",
-          100: "#d9e6ff",
-          200: "#bcd3ff",
-          300: "#8eb6ff",
-          400: "#598cff",
-          500: "#3563f6",
-          600: "#1f43eb",
-          700: "#1832d8",
-          800: "#1a2caf",
-          900: "#1c2c8a",
-          950: "#151c54",
+          50: "#ECF6F6",
+          100: "#D2E9EA",
+          200: "#A8D4D6",
+          300: "#74B9BD",
+          400: "#3DA1A8",
+          500: "#1A8C94",
+          600: "#0E5C63",
+          700: "#0A444A",
+          800: "#093A3F",
+          900: "#082F33",
+          950: "#03191B",
         },
-        // Lumi: eigene, klar unterscheidbare Akzentfarbe (Violett/Teal-Mix)
+        // Akzent: warme Koralle – NUR für CTAs / wichtigste Hinweise (10%-Regel).
+        // 600 = Koralle (#E55340), 700 = Koralle dunkel (#C9402F, hover)
         lumi: {
-          50: "#f3f1ff",
-          100: "#e9e5ff",
-          200: "#d5ceff",
-          300: "#b7a8ff",
-          400: "#9478ff",
-          500: "#7c4dff",
-          600: "#6f31f7",
-          700: "#5f1fe0",
-          800: "#4f1bbc",
-          900: "#421a99",
-          950: "#280f66",
+          50: "#FDEEEB",
+          100: "#FBD9D3",
+          200: "#F6B7AC",
+          300: "#F0907F",
+          400: "#EB6E59",
+          500: "#E85D49",
+          600: "#E55340",
+          700: "#C9402F",
+          800: "#A5341F",
+          900: "#87291A",
+          950: "#4A130B",
         },
       },
       fontFamily: {

@@ -17,7 +17,7 @@ export function HeroFallback() {
 }
 
 /** CSS-Fallback für den Unterseiten-Header. */
-export function PageHeroFallback({ accent = "#3563f6" }: { accent?: string }) {
+export function PageHeroFallback({ accent = "#1A8C94" }: { accent?: string }) {
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
       <div

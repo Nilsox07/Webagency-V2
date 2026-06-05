@@ -21,7 +21,7 @@ export default function KontaktPage() {
         title="Lass uns sprechen"
         intro="Du hast Fragen zu einem Paket oder deinem Projekt? Schreib mir – ich antworte in der Regel innerhalb von einem Werktag, persönlich."
         breadcrumbs={[{ name: "Kontakt", path: "/kontakt" }]}
-        accent="#598cff"
+        accent="#1A8C94"
       />
       <Section>
         <Container>

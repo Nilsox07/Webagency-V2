@@ -54,7 +54,7 @@ export function StorySection() {
   const bg = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#1c0f12", "#0b1020", "#0c1b4d"]
+    ["#1c0f12", "#06181A", "#082F33"]
   );
 
   // Problem-Headline raus, Lösungs-Headline rein
@@ -67,7 +67,7 @@ export function StorySection() {
   return (
     <section ref={ref} className="relative h-[320vh]" aria-label="Vom Angebotschaos zur Klarheit">
       <m.div
-        style={{ backgroundColor: reduce ? "#0c1b4d" : bg }}
+        style={{ backgroundColor: reduce ? "#082F33" : bg }}
         className="sticky top-0 flex h-[100svh] items-center justify-center overflow-hidden"
       >
         {/* Glühen */}

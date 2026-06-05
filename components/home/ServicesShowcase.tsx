@@ -52,7 +52,7 @@ function TiltCard({ service }: { service: (typeof services)[number] }) {
 export function ServicesShowcase() {
   return (
     <section className="relative overflow-hidden bg-slate-950 py-24" aria-label="Leistungen">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,#7c4dff1a,transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,#E553401a,transparent_55%)]" />
       <div className="container-content relative">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-wider text-lumi-300">Leistungen</p>

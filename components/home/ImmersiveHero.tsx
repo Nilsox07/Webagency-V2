@@ -37,8 +37,8 @@ export function ImmersiveHero() {
       aria-label="Einleitung"
     >
       {/* Tiefen-Hintergrund */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#1a2caf33,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,#7c4dff22,transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#0E5C6333,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,#E5534022,transparent_55%)]" />
 
       {/* 3D-Szene: Desktop + nach idle gemountet; sonst leichter CSS-Fallback */}
       {show3D ? <Hero3D /> : <HeroFallback />}

@@ -53,7 +53,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           { name: "Leistungen", path: "/leistungen" },
           { name: service.title, path: `/leistungen/${service.slug}` },
         ]}
-        accent="#7c4dff"
+        accent="#1A8C94"
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <a

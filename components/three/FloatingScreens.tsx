@@ -21,12 +21,12 @@ function BrowserCard({
     <group position={position} rotation={rotation} scale={scale}>
       {/* Rahmen */}
       <RoundedBox args={[2, 1.35, 0.08]} radius={0.06} smoothness={3}>
-        <meshStandardMaterial color="#0d1330" metalness={0.55} roughness={0.35} />
+        <meshStandardMaterial color="#0A2A2E" metalness={0.55} roughness={0.35} />
       </RoundedBox>
       {/* Bildschirm */}
       <mesh position={[0, -0.08, 0.045]}>
         <planeGeometry args={[1.86, 1.04]} />
-        <meshStandardMaterial color="#0a0f24" metalness={0.2} roughness={0.6} />
+        <meshStandardMaterial color="#06181A" metalness={0.2} roughness={0.6} />
       </mesh>
       {/* Topbar-Punkte */}
       {[-0.82, -0.72, -0.62].map((x, i) => (
@@ -49,7 +49,7 @@ function BrowserCard({
       {[0, 1, 2].map((i) => (
         <mesh key={i} position={[0.62, 0.26 - i * 0.16, 0.06]}>
           <planeGeometry args={[0.55, 0.06]} />
-          <meshStandardMaterial color="#5b6aa8" emissive="#5b6aa8" emissiveIntensity={0.4} toneMapped={false} />
+          <meshStandardMaterial color="#4F8A8E" emissive="#4F8A8E" emissiveIntensity={0.4} toneMapped={false} />
         </mesh>
       ))}
       {/* Button */}
@@ -61,7 +61,7 @@ function BrowserCard({
       {[0, 1, 2].map((i) => (
         <mesh key={`t${i}`} position={[-0.55 + i * 0.4, -0.58, 0.06]}>
           <planeGeometry args={[0.32, 0.18]} />
-          <meshStandardMaterial color="#243056" emissive="#243056" emissiveIntensity={0.3} toneMapped={false} />
+          <meshStandardMaterial color="#123C40" emissive="#123C40" emissiveIntensity={0.3} toneMapped={false} />
         </mesh>
       ))}
     </group>
@@ -81,26 +81,26 @@ export function FloatingScreens() {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 6, 5]} intensity={1.1} color="#bcd3ff" />
-      <pointLight position={[-6, -2, 3]} intensity={45} color="#7c4dff" distance={25} />
-      <pointLight position={[6, 4, -2]} intensity={35} color="#3563f6" distance={25} />
+      <directionalLight position={[5, 6, 5]} intensity={1.1} color="#9FD0D3" />
+      <pointLight position={[-6, -2, 3]} intensity={45} color="#E55340" distance={25} />
+      <pointLight position={[6, 4, -2]} intensity={35} color="#1A8C94" distance={25} />
 
       <group ref={group}>
         <Float speed={1.3} rotationIntensity={0.25} floatIntensity={0.8}>
-          <BrowserCard position={[0, 0, 0]} accent="#3563f6" scale={1.05} />
+          <BrowserCard position={[0, 0, 0]} accent="#1A8C94" scale={1.05} />
         </Float>
         <Float speed={1.6} rotationIntensity={0.4} floatIntensity={1.1}>
-          <BrowserCard position={[-2.7, 1.1, -1.6]} rotation={[0.1, 0.5, 0.05]} scale={0.78} accent="#7c4dff" />
+          <BrowserCard position={[-2.7, 1.1, -1.6]} rotation={[0.1, 0.5, 0.05]} scale={0.78} accent="#E55340" />
         </Float>
         <Float speed={1.1} rotationIntensity={0.4} floatIntensity={1.2}>
-          <BrowserCard position={[2.8, -1.0, -1.4]} rotation={[-0.1, -0.5, -0.06]} scale={0.72} accent="#598cff" />
+          <BrowserCard position={[2.8, -1.0, -1.4]} rotation={[-0.1, -0.5, -0.06]} scale={0.72} accent="#3DA1A8" />
         </Float>
 
         {/* Digitaler Raster-Boden */}
-        <gridHelper args={[40, 40, "#3563f6", "#1a2150"]} position={[0, -2.6, 0]} />
+        <gridHelper args={[40, 40, "#1A8C94", "#0A2E31"]} position={[0, -2.6, 0]} />
       </group>
 
-      <Sparkles count={30} scale={[14, 9, 7]} size={2.6} speed={0.25} color="#bcd3ff" opacity={0.7} />
+      <Sparkles count={30} scale={[14, 9, 7]} size={2.6} speed={0.25} color="#CFE7E8" opacity={0.7} />
     </>
   );
 }
