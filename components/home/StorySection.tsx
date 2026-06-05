@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
+import { m, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { Icon } from "@/components/Icon";
 
 const chaosChips = [
@@ -32,13 +32,13 @@ function ChaosChip({
   const rotate = useTransform(progress, [0, 0.5], [chip.r, 0]);
   const opacity = useTransform(progress, [0.28, 0.5], [1, 0]);
   return (
-    <motion.div
+    <m.div
       style={{ x, y, rotate, opacity }}
       className="absolute rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-3 text-sm font-medium text-red-100 backdrop-blur"
     >
       <span className="mr-2 inline-block">⚠️</span>
       {chip.text}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -66,7 +66,7 @@ export function StorySection() {
 
   return (
     <section ref={ref} className="relative h-[320vh]" aria-label="Vom Angebotschaos zur Klarheit">
-      <motion.div
+      <m.div
         style={{ backgroundColor: reduce ? "#0c1b4d" : bg }}
         className="sticky top-0 flex h-[100svh] items-center justify-center overflow-hidden"
       >
@@ -74,7 +74,7 @@ export function StorySection() {
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-lumi-600/20 blur-3xl" />
 
         {/* Phase 1: Chaos */}
-        <motion.div
+        <m.div
           style={{ opacity: problemOpacity, y: problemY }}
           className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
         >
@@ -91,10 +91,10 @@ export function StorySection() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Phase 2: Klarheit */}
-        <motion.div
+        <m.div
           style={{ opacity: solutionOpacity, y: solutionY, scale: solutionScale }}
           className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
         >
@@ -118,16 +118,16 @@ export function StorySection() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Fortschrittsbalken */}
         <div className="absolute bottom-10 left-1/2 h-1 w-40 -translate-x-1/2 overflow-hidden rounded-full bg-white/10">
-          <motion.div
+          <m.div
             style={{ scaleX: scrollYProgress }}
             className="h-full w-full origin-left bg-gradient-to-r from-brand-400 to-lumi-400"
           />
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

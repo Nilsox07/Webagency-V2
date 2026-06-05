@@ -4,19 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { useReducedMotion } from "framer-motion";
 import { Suspense } from "react";
 import { PageHeroScene } from "./PageHeroScene";
-
-/** CSS-Fallback für den Unterseiten-Header. */
-export function PageHeroFallback({ accent = "#3563f6" }: { accent?: string }) {
-  return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div
-        className="absolute right-[12%] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full blur-3xl"
-        style={{ backgroundColor: `${accent}33` }}
-      />
-      <div className="absolute right-1/3 top-1/4 h-40 w-40 rounded-full bg-lumi-500/20 blur-3xl" />
-    </div>
-  );
-}
+import { PageHeroFallback } from "./Fallbacks";
 
 /** Leichte WebGL-Szene für Unterseiten-Header (dynamisch, nur Client). */
 export default function PageHero3D({ accent = "#3563f6" }: { accent?: string }) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { m, useReducedMotion, type Variants } from "framer-motion";
 
 type Direction = "up" | "down" | "left" | "right" | "scale" | "none";
 
@@ -45,7 +45,7 @@ export function Reveal({
   as?: "div" | "section" | "li" | "span";
 }) {
   const reduce = useReducedMotion() ?? false;
-  const MotionTag = motion[as];
+  const MotionTag = m[as];
   return (
     <MotionTag
       className={className}
@@ -71,7 +71,7 @@ export function RevealGroup({
   stagger?: number;
 }) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="show"
@@ -79,6 +79,6 @@ export function RevealGroup({
       variants={{ show: { transition: { staggerChildren: stagger } } }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

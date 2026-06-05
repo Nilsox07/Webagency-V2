@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
+import { m, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
 import { Icon } from "@/components/Icon";
 import { services } from "@/lib/services";
 import { Reveal } from "@/components/motion/Reveal";
@@ -27,7 +27,7 @@ function TiltCard({ service }: { service: (typeof services)[number] }) {
   }
 
   return (
-    <motion.a
+    <m.a
       ref={ref}
       href={`/leistungen/${service.slug}`}
       onMouseMove={onMove}
@@ -45,7 +45,7 @@ function TiltCard({ service }: { service: (typeof services)[number] }) {
         Mehr erfahren
         <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </span>
-    </motion.a>
+    </m.a>
   );
 }
 

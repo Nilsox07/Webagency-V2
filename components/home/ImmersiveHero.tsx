@@ -3,9 +3,9 @@
 import { useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { m, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Icon } from "@/components/Icon";
-import { HeroFallback } from "@/components/three/Hero3D";
+import { HeroFallback } from "@/components/three/Fallbacks";
 import { useIsDesktop } from "@/components/three/useIsDesktop";
 
 // WebGL nur im Browser laden (kein SSR), mit CSS-Fallback währenddessen.
@@ -44,9 +44,9 @@ export function ImmersiveHero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 to-transparent" />
 
       {/* Text-Overlay */}
-      <motion.div style={{ y, opacity }} className="container-content relative z-10">
+      <m.div style={{ y, opacity }} className="container-content relative z-10">
         <div className="max-w-3xl">
-          <motion.span
+          <m.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -54,9 +54,9 @@ export function ImmersiveHero() {
           >
             <span className="h-2 w-2 animate-pulse rounded-full bg-lumi-400" />
             Webdesign zum Festpreis · mit KI-Assistentin Lumi
-          </motion.span>
+          </m.span>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -67,9 +67,9 @@ export function ImmersiveHero() {
               umhauen
             </span>
             . Zum Festpreis.
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
@@ -78,9 +78,9 @@ export function ImmersiveHero() {
             Professionelle Websites für lokale Unternehmen – ab 990 €, mit festem
             Termin und ohne Angebotschaos. Dein Projekt beschreibst du in Minuten
             im Chat mit Lumi.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -100,9 +100,9 @@ export function ImmersiveHero() {
             >
               Pakete & Preise
             </Link>
-          </motion.div>
+          </m.div>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -117,25 +117,25 @@ export function ImmersiveHero() {
             <span className="inline-flex items-center gap-1.5">
               <Icon name="check" className="h-4 w-4 text-emerald-400" /> DSGVO-konform
             </span>
-          </motion.p>
+          </m.p>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Scroll-Indikator */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/30 p-1.5">
-          <motion.span
+          <m.span
             className="h-2 w-1 rounded-full bg-white/70"
             animate={reduce ? {} : { y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
           />
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

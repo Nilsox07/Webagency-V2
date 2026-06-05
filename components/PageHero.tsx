@@ -2,10 +2,10 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import type { Crumb } from "@/components/Breadcrumbs";
-import { PageHeroFallback } from "@/components/three/PageHero3D";
+import { PageHeroFallback } from "@/components/three/Fallbacks";
 import { useIsDesktop } from "@/components/three/useIsDesktop";
 
 const PageHero3D = dynamic(() => import("@/components/three/PageHero3D"), {
@@ -77,42 +77,42 @@ export function PageHero({
 
         <div className="max-w-3xl">
           {eyebrow && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="mb-3 text-sm font-semibold uppercase tracking-wider text-lumi-300"
             >
               {eyebrow}
-            </motion.p>
+            </m.p>
           )}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05 }}
             className="text-4xl font-bold tracking-tight text-white sm:text-5xl"
           >
             {title}
-          </motion.h1>
+          </m.h1>
           {intro && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
               className="mt-5 text-lg text-slate-300"
             >
               {intro}
-            </motion.p>
+            </m.p>
           )}
           {children && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-8"
             >
               {children}
-            </motion.div>
+            </m.div>
           )}
         </div>
       </div>

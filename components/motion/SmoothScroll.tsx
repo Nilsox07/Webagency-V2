@@ -2,10 +2,13 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
-import { useReducedMotion } from "framer-motion";
+import { LazyMotion, domAnimation, useReducedMotion } from "framer-motion";
 
 /**
- * Globaler Smooth-Scroll (Lenis) für ein „premium" Scroll-Gefühl.
+ * Globaler Smooth-Scroll (Lenis) + LazyMotion-Provider.
+ * LazyMotion lädt nur das schlanke `domAnimation`-Feature-Set für die
+ * `m.*`-Komponenten – das spart einen großen Teil des Framer-Motion-Bundles,
+ * ohne das gerenderte HTML zu verändern (SEO/GEO unberührt).
  * Respektiert prefers-reduced-motion (dann nativer Scroll).
  */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
@@ -27,12 +30,11 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     }
     raf = requestAnimationFrame(loop);
 
-    // Anker-Links sanft scrollen lassen
     return () => {
       cancelAnimationFrame(raf);
       lenis.destroy();
     };
   }, [reduce]);
 
-  return <>{children}</>;
+  return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
 }
