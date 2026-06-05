@@ -7,7 +7,7 @@ import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import type { Crumb } from "@/components/Breadcrumbs";
 import { PageHeroFallback } from "@/components/three/Fallbacks";
 import { useIsDesktop } from "@/components/three/useIsDesktop";
-import { useDeferredMount } from "@/components/three/useDeferredMount";
+import { useMountOnInteraction } from "@/components/three/useDeferredMount";
 
 const PageHero3D = dynamic(() => import("@/components/three/PageHero3D"), {
   ssr: false,
@@ -36,8 +36,8 @@ export function PageHero({
   children?: React.ReactNode;
 }) {
   const desktop = useIsDesktop();
-  const deferred = useDeferredMount(desktop);
-  const show3D = desktop && deferred;
+  const interacted = useMountOnInteraction(desktop);
+  const show3D = desktop && interacted;
   const full: Crumb[] = [{ name: "Start", path: "/" }, ...breadcrumbs];
 
   return (

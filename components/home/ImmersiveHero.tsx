@@ -7,7 +7,7 @@ import { m, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Icon } from "@/components/Icon";
 import { HeroFallback } from "@/components/three/Fallbacks";
 import { useIsDesktop } from "@/components/three/useIsDesktop";
-import { useDeferredMount } from "@/components/three/useDeferredMount";
+import { useMountOnInteraction } from "@/components/three/useDeferredMount";
 
 // WebGL nur im Browser laden (kein SSR), mit CSS-Fallback währenddessen.
 const Hero3D = dynamic(() => import("@/components/three/Hero3D"), {
@@ -19,8 +19,8 @@ export function ImmersiveHero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const desktop = useIsDesktop();
-  const deferred = useDeferredMount(desktop);
-  const show3D = desktop && deferred;
+  const interacted = useMountOnInteraction(desktop);
+  const show3D = desktop && interacted;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
