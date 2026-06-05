@@ -3,7 +3,6 @@
 import { useRef, type ReactNode } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Float, RoundedBox, Sparkles } from "@react-three/drei";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 
 /** Ein stilisiertes „Browserfenster" mit angedeutetem Website-Layout. */
@@ -101,11 +100,7 @@ export function FloatingScreens() {
         <gridHelper args={[40, 40, "#3563f6", "#1a2150"]} position={[0, -2.6, 0]} />
       </group>
 
-      <Sparkles count={45} scale={[14, 9, 7]} size={2.4} speed={0.3} color="#bcd3ff" opacity={0.7} />
-
-      <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={0.6} luminanceSmoothing={0.3} intensity={0.8} />
-      </EffectComposer>
+      <Sparkles count={30} scale={[14, 9, 7]} size={2.6} speed={0.25} color="#bcd3ff" opacity={0.7} />
     </>
   );
 }
