@@ -29,8 +29,15 @@ export function organizationSchema() {
       streetAddress: c.street,
       postalCode: c.zip,
       addressLocality: c.city,
+      addressRegion: c.region,
       addressCountry: "DE",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: c.lat,
+      longitude: c.lng,
+    },
+    priceRange: "990 € – 9.990 €",
     areaServed: siteConfig.areaServed.map((a) => ({ "@type": "City", name: a })),
     founder: { "@type": "Person", name: siteConfig.owner.name },
     knowsAbout: ["Webdesign", "SEO", "Lokales SEO", "Generative Engine Optimization", "Hosting"],
@@ -84,5 +91,57 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       name: item.name,
       item: `${siteConfig.url}${item.path}`,
     })),
+  };
+}
+
+/** Article/BlogPosting-Schema (Ratgeber). */
+export function articleSchema(opts: {
+  headline: string;
+  description: string;
+  path: string;
+  dateModified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.headline,
+    description: opts.description,
+    inLanguage: "de-DE",
+    datePublished: opts.dateModified,
+    dateModified: opts.dateModified,
+    author: { "@type": "Person", name: siteConfig.owner.name },
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+    mainEntityOfPage: `${siteConfig.url}${opts.path}`,
+  };
+}
+
+/** DefinedTerm-Schema (Glossar). */
+export function definedTermSchema(opts: { term: string; definition: string; path: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: opts.term,
+    description: opts.definition,
+    inDefinedTermSet: `${siteConfig.url}/glossar`,
+    url: `${siteConfig.url}${opts.path}`,
+  };
+}
+
+/** Service-Schema mit lokalem areaServed (Stadt-/Branchenseiten). */
+export function localServiceSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  areaServed: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    serviceType: "Webdesign",
+    description: opts.description,
+    provider: { "@id": `${siteConfig.url}/#organization` },
+    areaServed: { "@type": "City", name: opts.areaServed },
+    url: `${siteConfig.url}${opts.path}`,
   };
 }

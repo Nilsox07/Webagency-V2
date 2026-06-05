@@ -11,6 +11,8 @@ import { ServicesShowcase } from "@/components/home/ServicesShowcase";
 import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 import { generalFaq } from "@/lib/faq";
 import { siteConfig } from "@/lib/config";
+import { wave1Locations } from "@/lib/locations";
+import { articles } from "@/lib/ratgeber";
 
 export default function HomePage() {
   return (
@@ -26,6 +28,37 @@ export default function HomePage() {
 
       {/* Leistungen (3D-Tilt-Karten) */}
       <ServicesShowcase />
+
+      {/* LOKAL: Region Dresden/Sachsen */}
+      <Section>
+        <Container>
+          <Reveal>
+            <SectionHeading
+              centered
+              eyebrow="Dresden & Sachsen"
+              title="Dein Webdesigner aus der Region"
+              intro="Festpreis-Websites für lokale Unternehmen in Dresden und ganz Sachsen – persönlich, schnell und lokal auffindbar. Wähle deinen Ort:"
+            />
+          </Reveal>
+          <Reveal className="mt-8 flex flex-wrap justify-center gap-2">
+            {wave1Locations.map((l) => (
+              <Link
+                key={l.slug}
+                href={`/webdesign/${l.slug}`}
+                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-brand-300 hover:text-brand-700"
+              >
+                Webdesign {l.name}
+              </Link>
+            ))}
+            <Link
+              href="/webdesign"
+              className="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
+            >
+              Alle Standorte →
+            </Link>
+          </Reveal>
+        </Container>
+      </Section>
 
       {/* PAKETE */}
       <Section>
@@ -91,8 +124,42 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* FAQ */}
+      {/* RATGEBER */}
       <Section muted>
+        <Container>
+          <Reveal>
+            <SectionHeading
+              centered
+              eyebrow="Ratgeber"
+              title="Ehrliche Antworten vor deiner Entscheidung"
+              intro="Was kostet eine Website? Brauche ich Barrierefreiheit? Selbst machen oder machen lassen? Klar erklärt, mit Zahlen und Quellen."
+            />
+          </Reveal>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {articles.slice(0, 3).map((a) => (
+              <Reveal key={a.slug} className="h-full">
+                <Link href={`/ratgeber/${a.slug}`}>
+                  <Card className="h-full">
+                    <h3 className="text-lg font-semibold text-slate-900">{a.title}</h3>
+                    <p className="prose-text mt-2 text-sm">{a.excerpt}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+                      Weiterlesen
+                    </span>
+                  </Card>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Button href="/ratgeber" variant="ghost" withArrow>
+              Alle Ratgeber ansehen
+            </Button>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FAQ */}
+      <Section>
         <Container>
           <Reveal>
             <SectionHeading centered eyebrow="FAQ" title="Häufige Fragen" />

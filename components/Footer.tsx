@@ -12,11 +12,12 @@ const legalLinks = [
 ];
 
 const companyLinks = [
+  { label: "Webdesign in Sachsen", href: "/webdesign" },
   { label: "Pakete & Preise", href: "/preise" },
-  { label: "Ablauf", href: "/ablauf" },
+  { label: "Ratgeber", href: "/ratgeber" },
+  { label: "Glossar", href: "/glossar" },
   { label: "Referenzen", href: "/portfolio" },
   { label: "Über mich", href: "/ueber-mich" },
-  { label: "FAQ", href: "/faq" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 

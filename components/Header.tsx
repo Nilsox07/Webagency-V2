@@ -9,8 +9,8 @@ import { Icon } from "./Icon";
 const mainNav = [
   { label: "Leistungen", href: "/leistungen", hasMenu: true },
   { label: "Pakete & Preise", href: "/preise" },
-  { label: "Referenzen", href: "/portfolio" },
-  { label: "Ablauf", href: "/ablauf" },
+  { label: "Standorte", href: "/webdesign" },
+  { label: "Ratgeber", href: "/ratgeber" },
   { label: "Über mich", href: "/ueber-mich" },
 ];
 
