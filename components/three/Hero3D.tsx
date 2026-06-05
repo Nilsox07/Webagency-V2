@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { useReducedMotion } from "framer-motion";
 import { Suspense } from "react";
-import { HeroScene } from "./HeroScene";
+import { FloatingScreens } from "./FloatingScreens";
 
 /** CSS-Fallback (kein WebGL / reduzierte Bewegung): animierte Farbverläufe. */
 export function HeroFallback() {
@@ -30,7 +30,7 @@ export default function Hero3D() {
         performance={{ min: 0.5 }}
       >
         <Suspense fallback={null}>
-          <HeroScene />
+          <FloatingScreens />
         </Suspense>
       </Canvas>
     </div>

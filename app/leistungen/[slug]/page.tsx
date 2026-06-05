@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Section, SectionHeading, Container, Button, Card, Badge } from "@/components/ui";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
 import { JsonLd } from "@/components/JsonLd";
@@ -45,36 +45,31 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   return (
     <>
       <JsonLd data={serviceSchema(service.slug)} />
-      <Breadcrumbs
-        items={[
+      <PageHero
+        eyebrow="Leistung"
+        title={service.title}
+        intro={service.lead}
+        breadcrumbs={[
           { name: "Leistungen", path: "/leistungen" },
           { name: service.title, path: `/leistungen/${service.slug}` },
         ]}
-      />
-
-      {/* HERO mit Antwort-zuerst-Lead (GEO) */}
-      <Section className="!pt-10 !pb-12">
-        <Container>
-          <div className="max-w-3xl">
-            <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-50 text-brand-600">
-              <Icon name={service.icon} className="h-6 w-6" />
-            </span>
-            <h1 className="mt-5 text-4xl font-bold text-slate-900 sm:text-5xl">{service.title}</h1>
-            <p className="prose-text mt-5 text-lg">{service.lead}</p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/briefing"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-600 px-6 py-3 font-semibold text-white transition hover:bg-lumi-700"
-              >
-                <Icon name="chat" className="h-5 w-5" /> Briefing starten
-              </a>
-              <Button href="/preise" variant="secondary">
-                Preise ansehen
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </Section>
+        accent="#7c4dff"
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/briefing"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-lumi-600 px-6 py-3 font-semibold text-white transition hover:bg-lumi-500"
+          >
+            <Icon name="chat" className="h-5 w-5" /> Briefing starten
+          </a>
+          <a
+            href="/preise"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/10"
+          >
+            Preise ansehen
+          </a>
+        </div>
+      </PageHero>
 
       {/* PROBLEM */}
       <Section muted className="!py-14">

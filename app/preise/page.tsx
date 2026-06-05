@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section, SectionHeading, Container, Badge } from "@/components/ui";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { PricingCards } from "@/components/PricingCards";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { TrustBar } from "@/components/TrustBar";
@@ -51,22 +51,16 @@ export default function PreisePage() {
   return (
     <>
       <JsonLd data={offerSchema()} />
-      <Breadcrumbs items={[{ name: "Pakete & Preise", path: "/preise" }]} />
-
-      {/* HERO */}
-      <Section className="!pt-10 !pb-10">
-        <Container>
-          <SectionHeading
-            as="h1"
-            eyebrow="Pakete & Preise"
-            title="Feste Preise. Feste Termine. Keine Überraschungen."
-            intro="Eine professionelle Website kostet bei uns ab 990 € – als transparenter Festpreis. Du siehst sofort, was deine Website kostet: kein Angebot abwarten, keine versteckten Kosten. Alle Preise netto zzgl. MwSt."
-          />
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Pakete & Preise"
+        title="Feste Preise. Feste Termine. Keine Überraschungen."
+        intro="Eine professionelle Website kostet bei uns ab 990 € – als transparenter Festpreis. Du siehst sofort, was deine Website kostet: kein Angebot abwarten, keine versteckten Kosten. Alle Preise netto zzgl. MwSt."
+        breadcrumbs={[{ name: "Pakete & Preise", path: "/preise" }]}
+        accent="#7c4dff"
+      />
 
       {/* KARTEN */}
-      <Section className="!pt-0">
+      <Section>
         <Container>
           <PricingCards />
         </Container>

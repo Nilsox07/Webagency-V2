@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section, SectionHeading, Container } from "@/components/ui";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
 import { processSteps } from "@/lib/process";
@@ -40,17 +40,15 @@ const ablaufFaq: FaqItem[] = [
 export default function AblaufPage() {
   return (
     <>
-      <Breadcrumbs items={[{ name: "Ablauf", path: "/ablauf" }]} />
-      <Section className="!pt-10">
+      <PageHero
+        eyebrow="Ablauf"
+        title="So entsteht deine Website – in vier Schritten"
+        intro="Bei uns gibt es kein Angebotschaos. Der Weg von der Idee zur fertigen Website ist klar strukturiert, transparent und planbar. Du weißt in jedem Schritt, was passiert und was es kostet."
+        breadcrumbs={[{ name: "Ablauf", path: "/ablauf" }]}
+      />
+      <Section>
         <Container>
-          <SectionHeading
-            as="h1"
-            eyebrow="Ablauf"
-            title="So entsteht deine Website – in vier Schritten"
-            intro="Bei uns gibt es kein Angebotschaos. Der Weg von der Idee zur fertigen Website ist klar strukturiert, transparent und planbar. Du weißt in jedem Schritt, was passiert und was es kostet."
-          />
-
-          <div className="mt-14 space-y-8">
+          <div className="space-y-8">
             {processSteps.map((step, i) => (
               <div key={step.number} className="relative flex gap-6">
                 {/* Verbindungslinie */}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section, Container } from "@/components/ui";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/lib/config";
 
@@ -16,19 +16,19 @@ export default function KontaktPage() {
   const c = siteConfig.contact;
   return (
     <>
-      <Breadcrumbs items={[{ name: "Kontakt", path: "/kontakt" }]} />
-      <Section className="!pt-10">
+      <PageHero
+        eyebrow="Kontakt"
+        title="Lass uns sprechen"
+        intro="Du hast Fragen zu einem Paket oder deinem Projekt? Schreib mir – ich antworte in der Regel innerhalb von einem Werktag, persönlich."
+        breadcrumbs={[{ name: "Kontakt", path: "/kontakt" }]}
+        accent="#598cff"
+      />
+      <Section>
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
-            {/* Links: Wertversprechen + NAP */}
+            {/* Links: Kontaktdaten (NAP) */}
             <div>
-              <h1 className="text-4xl font-bold text-slate-900">Lass uns sprechen</h1>
-              <p className="prose-text mt-5 text-lg">
-                Du hast Fragen zu einem Paket oder deinem Projekt? Schreib mir – ich antworte in der
-                Regel innerhalb von einem Werktag, persönlich.
-              </p>
-
-              <div className="mt-8 space-y-4">
+              <div className="space-y-4">
                 <a href={`mailto:${c.email}`} className="flex items-center gap-3 text-slate-700 hover:text-brand-700">
                   <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand-50 text-brand-600">
                     <Icon name="mail" className="h-5 w-5" />

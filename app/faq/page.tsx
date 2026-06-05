@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Section, SectionHeading, Container } from "@/components/ui";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Section, Container } from "@/components/ui";
+import { PageHero } from "@/components/PageHero";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
 import { generalFaq } from "@/lib/faq";
@@ -19,18 +19,17 @@ const allFaq = [...generalFaq, ...services.flatMap((s) => s.faq)];
 export default function FaqPage() {
   return (
     <>
-      <Breadcrumbs items={[{ name: "FAQ", path: "/faq" }]} />
-      <Section className="!pt-10">
+      <PageHero
+        eyebrow="FAQ"
+        title="Häufige Fragen"
+        intro="Hier findest du Antworten auf die wichtigsten Fragen rund um Preise, Ablauf, Wartung und Lumi. Deine Frage ist nicht dabei? Schreib mir einfach."
+        breadcrumbs={[{ name: "FAQ", path: "/faq" }]}
+        accent="#7c4dff"
+      />
+      <Section>
         <Container>
-          <SectionHeading
-            as="h1"
-            eyebrow="FAQ"
-            title="Häufige Fragen"
-            intro="Hier findest du Antworten auf die wichtigsten Fragen rund um Preise, Ablauf, Wartung und Lumi. Deine Frage ist nicht dabei? Schreib mir einfach."
-          />
-
           {/* Allgemein (mit Schema für alle FAQ inkl. Leistungs-FAQ) */}
-          <div className="mt-10 max-w-3xl">
+          <div className="max-w-3xl">
             <FaqAccordion items={allFaq} />
           </div>
         </Container>

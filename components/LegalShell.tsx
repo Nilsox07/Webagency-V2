@@ -1,7 +1,7 @@
 import { Container } from "./ui";
-import { Breadcrumbs } from "./Breadcrumbs";
+import { PageHero } from "./PageHero";
 
-/** Einheitlicher Rahmen für Rechtstexte mit lesbarer Typografie. */
+/** Einheitlicher Rahmen für Rechtstexte mit animiertem Header und lesbarer Typografie. */
 export function LegalShell({
   title,
   path,
@@ -17,13 +17,12 @@ export function LegalShell({
 }) {
   return (
     <>
-      <Breadcrumbs items={[{ name: title, path }]} />
+      <PageHero title={title} breadcrumbs={[{ name: title, path }]} accent="#598cff" />
       <Container className="py-12">
         <div className="mx-auto max-w-3xl">
-          <h1 className="text-4xl font-bold text-slate-900">{title}</h1>
-          {updated && <p className="mt-2 text-sm text-slate-400">Zuletzt aktualisiert: {updated}</p>}
+          {updated && <p className="text-sm text-slate-400">Zuletzt aktualisiert: {updated}</p>}
           {disclaimer && (
-            <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
               <strong>Hinweis:</strong> {disclaimer}
             </div>
           )}

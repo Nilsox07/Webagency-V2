@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Icon } from "@/components/Icon";
 import { HeroFallback } from "@/components/three/Hero3D";
+import { useIsDesktop } from "@/components/three/useIsDesktop";
 
 // WebGL nur im Browser laden (kein SSR), mit CSS-Fallback währenddessen.
 const Hero3D = dynamic(() => import("@/components/three/Hero3D"), {
@@ -16,6 +17,7 @@ const Hero3D = dynamic(() => import("@/components/three/Hero3D"), {
 export function ImmersiveHero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+  const desktop = useIsDesktop();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -35,8 +37,8 @@ export function ImmersiveHero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#1a2caf33,transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,#7c4dff22,transparent_55%)]" />
 
-      {/* 3D-Szene */}
-      <Hero3D />
+      {/* 3D-Szene (Desktop) bzw. CSS-Fallback (Mobile/reduced-motion) */}
+      {desktop ? <Hero3D /> : <HeroFallback />}
 
       {/* sanfter Abschluss nach unten */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 to-transparent" />

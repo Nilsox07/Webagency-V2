@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Section, SectionHeading, Container, Button, Card } from "@/components/ui";
+import { Section, Container, Button, Card } from "@/components/ui";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { CtaBanner } from "@/components/CtaBanner";
 import { services } from "@/lib/services";
 
@@ -16,17 +16,15 @@ export const metadata: Metadata = {
 export default function LeistungenPage() {
   return (
     <>
-      <Breadcrumbs items={[{ name: "Leistungen", path: "/leistungen" }]} />
-      <Section className="!pt-10">
+      <PageHero
+        eyebrow="Leistungen"
+        title="Alles für deine digitale Sichtbarkeit"
+        intro="Eine professionelle Website ist der Anfang. Damit dein Unternehmen gefunden wird – bei Google und in KI-Antworten – kombinieren wir Webdesign mit SEO, lokaler Optimierung und GEO. Jede Leistung hat ihren eigenen Schwerpunkt und ist in unseren Festpreis-Paketen gebündelt."
+        breadcrumbs={[{ name: "Leistungen", path: "/leistungen" }]}
+      />
+      <Section>
         <Container>
-          <SectionHeading
-            as="h1"
-            eyebrow="Leistungen"
-            title="Alles für deine digitale Sichtbarkeit"
-            intro="Eine professionelle Website ist der Anfang. Damit dein Unternehmen gefunden wird – bei Google und in KI-Antworten – kombinieren wir Webdesign mit SEO, lokaler Optimierung und GEO. Jede Leistung hat ihren eigenen Schwerpunkt und ist in unseren Festpreis-Paketen gebündelt."
-          />
-
-          <div className="mt-12 space-y-6">
+          <div className="space-y-6">
             {services.map((s, i) => (
               <Card key={s.slug} className="md:p-8">
                 <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">

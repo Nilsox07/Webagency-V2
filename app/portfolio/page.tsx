@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Section, SectionHeading, Container, Badge } from "@/components/ui";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Section, Container, Badge } from "@/components/ui";
+import { PageHero } from "@/components/PageHero";
 import { CtaBanner } from "@/components/CtaBanner";
 import { caseStudies } from "@/lib/portfolio";
 
@@ -14,16 +14,15 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <Breadcrumbs items={[{ name: "Referenzen", path: "/portfolio" }]} />
-      <Section className="!pt-10">
+      <PageHero
+        eyebrow="Referenzen"
+        title="Websites, die für ihre Branche funktionieren"
+        intro="Von der Handwerker-Website bis zur Praxis mit Online-Terminbuchung – jedes Projekt ist auf die Branche und das Ziel zugeschnitten und mit dem passenden Festpreis-Paket umgesetzt."
+        breadcrumbs={[{ name: "Referenzen", path: "/portfolio" }]}
+        accent="#598cff"
+      />
+      <Section>
         <Container>
-          <SectionHeading
-            as="h1"
-            eyebrow="Referenzen"
-            title="Websites, die für ihre Branche funktionieren"
-            intro="Von der Handwerker-Website bis zur Praxis mit Online-Terminbuchung – jedes Projekt ist auf die Branche und das Ziel zugeschnitten und mit dem passenden Festpreis-Paket umgesetzt."
-          />
-
           {/* Hinweis: Platzhalter */}
           <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
             <strong>Hinweis:</strong> Die folgenden Projekte sind Beispiel-Platzhalter. Ersetze sie

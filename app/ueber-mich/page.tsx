@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Section, SectionHeading, Container, Card, Badge } from "@/components/ui";
+import { Section, SectionHeading, Container, Card } from "@/components/ui";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { CtaBanner } from "@/components/CtaBanner";
 import { JsonLd } from "@/components/JsonLd";
 import { siteConfig, sameAsLinks } from "@/lib/config";
@@ -38,28 +38,21 @@ export default function UeberMichPage() {
   return (
     <>
       <JsonLd data={personSchema()} />
-      <Breadcrumbs items={[{ name: "Über mich", path: "/ueber-mich" }]} />
+      <PageHero
+        eyebrow="Über mich"
+        title={`Hallo, ich bin ${siteConfig.owner.name}.`}
+        intro={siteConfig.owner.bioShort}
+        breadcrumbs={[{ name: "Über mich", path: "/ueber-mich" }]}
+        accent="#7c4dff"
+      />
 
-      <Section className="!pt-10">
+      <Section>
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-[280px_1fr]">
-            <div className="mx-auto grid h-64 w-64 place-items-center rounded-3xl bg-gradient-to-br from-brand-100 to-lumi-100 text-7xl shadow-inner">
-              {/* TODO: echtes Foto einsetzen (Solo: Gesicht schafft Vertrauen) */}
-              👋
-            </div>
-            <div>
-              <Badge>Über mich</Badge>
-              <h1 className="mt-3 text-4xl font-bold text-slate-900">
-                Hallo, ich bin {siteConfig.owner.name}.
-              </h1>
-              <p className="prose-text mt-5 text-lg">{siteConfig.owner.bioShort}</p>
-              <p className="prose-text mt-4">
-                Als Ein-Personen-Agentur bin ich nah an deinem Projekt – du sprichst immer mit der
-                Person, die deine Website auch baut. Moderne KI-Werkzeuge wie meine Assistentin Lumi
-                übernehmen Routine, damit ich mehr Zeit für das habe, was zählt: dein Ergebnis.
-              </p>
-            </div>
-          </div>
+          <p className="prose-text mx-auto max-w-3xl text-lg">
+            Als Ein-Personen-Agentur bin ich nah an deinem Projekt – du sprichst immer mit der
+            Person, die deine Website auch baut. Moderne KI-Werkzeuge wie meine Assistentin Lumi
+            übernehmen Routine, damit ich mehr Zeit für das habe, was zählt: dein Ergebnis.
+          </p>
         </Container>
       </Section>
 
