@@ -7,6 +7,7 @@ import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import type { Crumb } from "@/components/Breadcrumbs";
 import { PageHeroFallback } from "@/components/three/Fallbacks";
 import { useIsDesktop } from "@/components/three/useIsDesktop";
+import { useDeferredMount } from "@/components/three/useDeferredMount";
 
 const PageHero3D = dynamic(() => import("@/components/three/PageHero3D"), {
   ssr: false,
@@ -35,6 +36,8 @@ export function PageHero({
   children?: React.ReactNode;
 }) {
   const desktop = useIsDesktop();
+  const deferred = useDeferredMount(desktop);
+  const show3D = desktop && deferred;
   const full: Crumb[] = [{ name: "Start", path: "/" }, ...breadcrumbs];
 
   return (
@@ -43,8 +46,8 @@ export function PageHero({
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,#1f43eb33,transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,#7c4dff22,transparent_55%)]" />
 
-      {/* Animation: Desktop = WebGL, sonst CSS-Fallback */}
-      {desktop ? <PageHero3D accent={accent} /> : <PageHeroFallback accent={accent} />}
+      {/* Animation: Desktop + nach idle = WebGL, sonst leichter CSS-Fallback */}
+      {show3D ? <PageHero3D accent={accent} /> : <PageHeroFallback accent={accent} />}
 
       {/* sanfter Abschluss nach unten */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950 to-transparent" />

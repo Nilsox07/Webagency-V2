@@ -101,10 +101,10 @@ export function FloatingScreens() {
         <gridHelper args={[40, 40, "#3563f6", "#1a2150"]} position={[0, -2.6, 0]} />
       </group>
 
-      <Sparkles count={80} scale={[14, 9, 7]} size={2.4} speed={0.3} color="#bcd3ff" opacity={0.7} />
+      <Sparkles count={45} scale={[14, 9, 7]} size={2.4} speed={0.3} color="#bcd3ff" opacity={0.7} />
 
       <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={0.55} luminanceSmoothing={0.3} intensity={0.85} />
+        <Bloom mipmapBlur luminanceThreshold={0.6} luminanceSmoothing={0.3} intensity={0.8} />
       </EffectComposer>
     </>
   );

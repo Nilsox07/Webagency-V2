@@ -15,7 +15,7 @@ export default function Hero3D() {
     <div className="absolute inset-0" aria-hidden="true">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 42 }}
-        dpr={[1, 1.8]}
+        dpr={[1, 1.5]}
         gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
         performance={{ min: 0.5 }}
       >
