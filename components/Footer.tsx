@@ -114,6 +114,18 @@ export function Footer() {
           </p>
           <p>{c.responseTime}</p>
         </div>
+        <p className="mt-4 text-center text-xs text-slate-500 sm:text-left">
+          Ortsdaten:{" "}
+          <a
+            href="https://www.geonames.org/"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className="hover:text-slate-300"
+          >
+            GeoNames
+          </a>{" "}
+          (CC BY 4.0).
+        </p>
       </div>
     </footer>
   );

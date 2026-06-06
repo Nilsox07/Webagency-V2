@@ -1,0 +1,22 @@
+{
+  "total": 2656,
+  "byBundesland": {
+    "Berlin": 1,
+    "Hamburg": 3,
+    "Bayern": 530,
+    "Nordrhein-Westfalen": 378,
+    "Hessen": 254,
+    "Baden-Württemberg": 478,
+    "Bremen": 2,
+    "Niedersachsen": 306,
+    "Sachsen": 155,
+    "Sachsen-Anhalt": 63,
+    "Schleswig-Holstein": 97,
+    "Thüringen": 62,
+    "Mecklenburg-Vorpommern": 46,
+    "Rheinland-Pfalz": 126,
+    "Saarland": 49,
+    "Brandenburg": 106
+  },
+  "generatedAt": "2026-06-06T13:55:32.719Z"
+}

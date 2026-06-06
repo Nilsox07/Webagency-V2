@@ -8,49 +8,76 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { CtaBanner } from "@/components/CtaBanner";
 import { JsonLd, localServiceSchema, faqSchema } from "@/components/JsonLd";
-import { locations, getLocation } from "@/lib/locations";
+import { getLocation } from "@/lib/locations";
+import { getCity, allCitySlugs, formatPopulation } from "@/lib/cities";
+import { buildCityContent } from "@/lib/city-content";
 import { packages, formatEuro } from "@/lib/packages";
 
+// Alle Städte werden statisch vorgerendert (schnellste Auslieferung, CDN).
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return locations.map((l) => ({ stadt: l.slug }));
+  return allCitySlugs().map((stadt) => ({ stadt }));
+}
+
+/** Normalisiert: handgepflegte sächsische Texte (locations.ts) haben Vorrang,
+ *  sonst datenangereicherte Inhalte aus der Content-Engine. */
+function resolve(slug: string) {
+  const rich = getLocation(slug);
+  const city = getCity(slug);
+  if (!rich && !city) return null;
+  const cc = city ? buildCityContent(city) : null;
+
+  return {
+    name: rich?.name ?? cc!.name,
+    metaTitle: rich?.metaTitle ?? cc!.metaTitle,
+    metaDescription: rich?.metaDescription ?? cc!.metaDescription,
+    eyebrow: rich?.district ?? cc!.bundesland,
+    lead: rich?.lead ?? cc!.lead,
+    contextHeading: `Webdesign für Unternehmen in ${rich?.name ?? cc!.name}`,
+    localContext: rich?.localContext ?? cc!.localContext,
+    extra: rich?.proximity ?? cc!.whyLocal,
+    typicalBusinesses: rich?.typicalBusinesses ?? cc!.typicalBusinesses,
+    faq: rich?.faq ?? cc!.faq,
+    population: city?.population,
+    nearby: cc?.nearby ?? [],
+  };
 }
 
 export function generateMetadata({ params }: { params: { stadt: string } }): Metadata {
-  const loc = getLocation(params.stadt);
-  if (!loc) return {};
+  const r = resolve(params.stadt);
+  if (!r) return {};
   return {
-    title: loc.metaTitle,
-    description: loc.metaDescription,
-    alternates: { canonical: `/webdesign/${loc.slug}` },
+    title: r.metaTitle,
+    description: r.metaDescription,
+    alternates: { canonical: `/webdesign/${params.stadt}` },
   };
 }
 
 export default function StadtPage({ params }: { params: { stadt: string } }) {
-  const loc = getLocation(params.stadt);
-  if (!loc) notFound();
-
-  const otherCities = locations.filter((l) => l.slug !== loc.slug).slice(0, 6);
+  const r = resolve(params.stadt);
+  if (!r) notFound();
 
   return (
     <>
       <JsonLd
         data={[
           localServiceSchema({
-            name: `Webdesign ${loc.name}`,
-            description: loc.metaDescription,
-            path: `/webdesign/${loc.slug}`,
-            areaServed: loc.name,
+            name: `Webdesign ${r.name}`,
+            description: r.metaDescription,
+            path: `/webdesign/${params.stadt}`,
+            areaServed: r.name,
           }),
-          faqSchema(loc.faq),
+          faqSchema(r.faq),
         ]}
       />
       <PageHero
-        eyebrow={`Webdesign · ${loc.district}`}
-        title={`Webdesign ${loc.name}`}
-        intro={loc.lead}
+        eyebrow={`Webdesign · ${r.eyebrow}`}
+        title={`Webdesign ${r.name}`}
+        intro={r.lead}
         breadcrumbs={[
-          { name: "Webdesign in Sachsen", path: "/webdesign" },
-          { name: loc.name, path: `/webdesign/${loc.slug}` },
+          { name: "Webdesign in Deutschland", path: "/webdesign" },
+          { name: r.name, path: `/webdesign/${params.stadt}` },
         ]}
       >
         <div className="flex flex-col gap-3 sm:flex-row">
@@ -74,24 +101,27 @@ export default function StadtPage({ params }: { params: { stadt: string } }) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
             <div className="max-w-2xl">
-              <h2 className="text-2xl font-bold text-slate-900">
-                Webdesign für Unternehmen in {loc.name}
-              </h2>
-              <p className="prose-text mt-4">{loc.localContext}</p>
-              <p className="prose-text mt-4">{loc.proximity}</p>
+              <h2 className="text-2xl font-bold text-slate-900">{r.contextHeading}</h2>
+              <p className="prose-text mt-4">{r.localContext}</p>
+              <p className="prose-text mt-4">{r.extra}</p>
             </div>
             <Card className="h-fit bg-slate-50">
               <h3 className="text-sm font-semibold text-slate-900">
-                Typische Branchen in {loc.name}
+                Typische Branchen in {r.name}
               </h3>
               <ul className="mt-4 space-y-2">
-                {loc.typicalBusinesses.map((b) => (
+                {r.typicalBusinesses.map((b) => (
                   <li key={b} className="flex items-start gap-2 text-sm text-slate-600">
                     <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" />
                     <span>{b}</span>
                   </li>
                 ))}
               </ul>
+              {r.population && (
+                <p className="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500">
+                  {r.name}: rund {formatPopulation(r.population)} Einwohner
+                </p>
+              )}
             </Card>
           </div>
         </Container>
@@ -101,7 +131,7 @@ export default function StadtPage({ params }: { params: { stadt: string } }) {
       <Section muted>
         <Container>
           <SectionHeading
-            title={`Was kostet eine Website in ${loc.name}?`}
+            title={`Was kostet eine Website in ${r.name}?`}
             intro="Transparente Festpreise – du weißt vorab, was deine Website kostet. Keine versteckten Kosten."
           />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -137,33 +167,35 @@ export default function StadtPage({ params }: { params: { stadt: string } }) {
       {/* FAQ */}
       <Section muted>
         <Container>
-          <SectionHeading title={`Häufige Fragen – Webdesign ${loc.name}`} />
+          <SectionHeading title={`Häufige Fragen – Webdesign ${r.name}`} />
           <div className="mt-8 max-w-3xl">
-            <FaqAccordion items={loc.faq} />
+            <FaqAccordion items={r.faq} />
           </div>
         </Container>
       </Section>
 
-      {/* Interne Verlinkung: weitere Orte */}
-      <Section className="!py-12">
-        <Container>
-          <p className="text-sm font-semibold text-slate-500">Webdesign in weiteren Orten</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {otherCities.map((l) => (
-              <Link
-                key={l.slug}
-                href={`/webdesign/${l.slug}`}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-brand-300 hover:text-brand-700"
-              >
-                Webdesign {l.name}
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {/* Nachbarorte (interne Verlinkung + Crawl) */}
+      {r.nearby.length > 0 && (
+        <Section className="!py-12">
+          <Container>
+            <p className="text-sm font-semibold text-slate-500">Webdesign in der Umgebung</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {r.nearby.map((n) => (
+                <Link
+                  key={n.slug}
+                  href={`/webdesign/${n.slug}`}
+                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-brand-300 hover:text-brand-700"
+                >
+                  {n.name} <span className="text-slate-400">· {n.km} km</span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       <Section className="!pt-0">
-        <CtaBanner title={`Bereit für deine Website in ${loc.name}?`} />
+        <CtaBanner title={`Bereit für deine Website in ${r.name}?`} />
       </Section>
     </>
   );

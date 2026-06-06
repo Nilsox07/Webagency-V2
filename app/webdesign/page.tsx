@@ -4,34 +4,41 @@ import { Section, SectionHeading, Container, Card } from "@/components/ui";
 import { Icon } from "@/components/Icon";
 import { PageHero } from "@/components/PageHero";
 import { CtaBanner } from "@/components/CtaBanner";
-import { wave1Locations, wave2Locations } from "@/lib/locations";
+import { topCities, BUNDESLAND_SLUG, citiesByBundesland, formatPopulation } from "@/lib/cities";
 import { branchen } from "@/lib/branchen";
 
 export const metadata: Metadata = {
-  title: "Webdesign Dresden & Sachsen – Festpreis-Websites ab 990 €",
+  title: "Webdesign Deutschland – Festpreis-Websites ab 990 €",
   description:
-    "Webdesign aus Dresden für ganz Sachsen: schnelle, barrierearme Festpreis-Websites ab 990 €. Lokale Landingpages für Pirna, Radebeul, Meißen, Bautzen, Görlitz & mehr.",
+    "Webdesign zum Festpreis ab 990 € – deutschlandweit. Schnelle, barrierearme Websites mit lokalem SEO für tausende Städte. Finde deine Stadt oder dein Bundesland.",
   alternates: { canonical: "/webdesign" },
 };
 
 export default function WebdesignHubPage() {
+  const top = topCities(24);
+  const laender = Object.entries(BUNDESLAND_SLUG).map(([name, slug]) => ({
+    name,
+    slug,
+    count: citiesByBundesland(name).length,
+  }));
+
   return (
     <>
       <PageHero
-        eyebrow="Webdesign in Sachsen"
-        title="Webdesign aus Dresden – für ganz Sachsen"
-        intro="Wir bauen Festpreis-Websites für lokale Unternehmen in Dresden und der Region: ab 990 €, blitzschnell (Next.js, Top Core Web Vitals), barrierearm und lokal auffindbar. Wähle deinen Ort oder deine Branche – oder starte direkt das Briefing mit Lumi."
-        breadcrumbs={[{ name: "Webdesign in Sachsen", path: "/webdesign" }]}
+        eyebrow="Webdesign in Deutschland"
+        title="Webdesign zum Festpreis – deutschlandweit"
+        intro="Wir bauen Festpreis-Websites für lokale Unternehmen in ganz Deutschland: ab 990 €, blitzschnell (Next.js, Top Core Web Vitals), barrierearm und lokal auffindbar. Wähle deine Stadt, dein Bundesland oder deine Branche – oder starte direkt das Briefing mit Lumi."
+        breadcrumbs={[{ name: "Webdesign in Deutschland", path: "/webdesign" }]}
       />
 
-      {/* Vorteil-Block */}
+      {/* Vorteile */}
       <Section>
         <Container>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: "euro", t: "Festpreis ab 990 €", d: "Transparent statt Angebotschaos." },
               { icon: "rocket", t: "Schnellste Technik", d: "Next.js, Top Core Web Vitals." },
-              { icon: "pin", t: "Lokal in Sachsen", d: "Dresden & Umland, persönlich." },
+              { icon: "pin", t: "Lokal auffindbar", d: "Lokales SEO für deine Stadt." },
               { icon: "shieldCheck", t: "Barrierearm", d: "WCAG-orientiert, ohne Overlay." },
             ].map((x) => (
               <Card key={x.t}>
@@ -46,45 +53,53 @@ export default function WebdesignHubPage() {
         </Container>
       </Section>
 
-      {/* Städte */}
+      {/* Top-Städte */}
       <Section muted>
         <Container>
           <SectionHeading
-            eyebrow="Standorte"
+            eyebrow="Beliebte Städte"
             title="Webdesign in deiner Stadt"
-            intro="Lokale Seiten mit echtem Bezug zu deinem Ort – inkl. lokalem SEO für bessere Sichtbarkeit in deiner Region."
+            intro="Lokale Seiten mit echtem Ortsbezug und lokalem SEO. Hier die größten Städte – dein Ort fehlt? Über das Bundesland findest du ihn."
           />
-          <div className="mt-8">
-            <p className="text-sm font-semibold text-slate-500">Region Dresden & direktes Umland</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {wave1Locations.map((l) => (
-                <Link
-                  key={l.slug}
-                  href={`/webdesign/${l.slug}`}
-                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:border-brand-300 hover:text-brand-700"
-                >
-                  Webdesign {l.name}
-                </Link>
-              ))}
-            </div>
-            <p className="mt-6 text-sm font-semibold text-slate-500">Weitere Regionen in Sachsen</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {wave2Locations.map((l) => (
-                <Link
-                  key={l.slug}
-                  href={`/webdesign/${l.slug}`}
-                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:border-brand-300 hover:text-brand-700"
-                >
-                  Webdesign {l.name}
-                </Link>
-              ))}
-            </div>
+          <div className="mt-8 flex flex-wrap gap-2">
+            {top.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/webdesign/${c.slug}`}
+                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:border-brand-300 hover:text-brand-700"
+              >
+                Webdesign {c.name}
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Bundesländer */}
+      <Section>
+        <Container>
+          <SectionHeading
+            eyebrow="Nach Bundesland"
+            title="Wähle deine Region"
+            intro="Über das Bundesland findest du alle abgedeckten Städte in deiner Nähe."
+          />
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {laender.map((l) => (
+              <Link
+                key={l.slug}
+                href={`/webdesign/region/${l.slug}`}
+                className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-brand-300 hover:text-brand-700"
+              >
+                <span>{l.name}</span>
+                <span className="text-xs text-slate-400">{formatPopulation(l.count)} Orte</span>
+              </Link>
+            ))}
           </div>
         </Container>
       </Section>
 
       {/* Branchen */}
-      <Section>
+      <Section muted>
         <Container>
           <SectionHeading
             eyebrow="Branchen"
