@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Kontakt – Sprich mit uns",
   description:
-    "Kontaktiere Klarweb: per E-Mail, Telefon oder Formular. Antwort in der Regel innerhalb von 1 Werktag. Lieber direkt starten? Briefing mit Lumi.",
+    "Kontaktiere Sartu: per E-Mail, Telefon oder Formular. Antwort in der Regel innerhalb von 1 Werktag. Lieber direkt starten? Briefing mit Lumi.",
   alternates: { canonical: "/kontakt" },
 };
 

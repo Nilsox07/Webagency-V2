@@ -11,13 +11,13 @@
 
 export const siteConfig = {
   // Marke
-  name: "Klarweb", // TODO: echter Agenturname
-  legalName: "Klarweb", // TODO: vollständiger Rechtsname (z. B. „Klarweb – Vorname Nachname“ beim Einzelunternehmen)
+  name: "Sartu", // TODO: echter Agenturname
+  legalName: "Sartu", // TODO: vollständiger Rechtsname (z. B. „Sartu – Vorname Nachname“ beim Einzelunternehmen)
   tagline: "Feste Preise. Feste Termine. Keine Überraschungen.",
   description:
     "Festpreis-Webdesign aus Dresden für lokale Unternehmen in Sachsen: professionelle, blitzschnelle Websites mit transparenten Paketpreisen ab 990 €. Briefing in Minuten – geführt von KI-Assistentin Lumi.",
   // Produktions-Domain (ohne abschließenden Slash) – für Canonical-URLs, Sitemap, Schema
-  url: "https://www.klarweb.de", // TODO: echte Domain
+  url: "https://www.sartu.de", // TODO: echte Domain
 
   // Inhaber (Solo-Unternehmer – wichtig für E-E-A-T)
   owner: {
@@ -29,7 +29,7 @@ export const siteConfig = {
 
   // NAP – Name, Adresse, Telefon (Impressumspflicht + lokales SEO)
   contact: {
-    email: "hallo@klarweb.de", // TODO
+    email: "hallo@sartu.de", // TODO
     phone: "+49 351 1234567", // TODO
     phoneDisplay: "0351 1234567", // TODO
     street: "Musterstraße 12", // TODO – ladungsfähige Anschrift, kein Postfach

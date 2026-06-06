@@ -10,7 +10,7 @@ import type { FaqItem } from "@/lib/faq";
 export const metadata: Metadata = {
   title: "Ablauf – So entsteht deine Website",
   description:
-    "Der Ablauf bei Klarweb in vier transparenten Schritten: Paket wählen, Briefing mit Lumi, Umsetzung mit festem Termin, Go-live & Wartung. Kein Angebotschaos.",
+    "Der Ablauf bei Sartu in vier transparenten Schritten: Paket wählen, Briefing mit Lumi, Umsetzung mit festem Termin, Go-live & Wartung. Kein Angebotschaos.",
   alternates: { canonical: "/ablauf" },
 };
 

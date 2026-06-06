@@ -9,7 +9,7 @@ import { siteConfig, sameAsLinks } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Über mich – Webdesign persönlich & KI-unterstützt",
   description:
-    "Lerne den Menschen hinter Klarweb kennen: Ein-Personen-Agentur mit über 8 Jahren Erfahrung, KI-unterstützt für schnelle, persönliche und planbare Websites.",
+    "Lerne den Menschen hinter Sartu kennen: Ein-Personen-Agentur mit über 8 Jahren Erfahrung, KI-unterstützt für schnelle, persönliche und planbare Websites.",
   alternates: { canonical: "/ueber-mich" },
 };
 

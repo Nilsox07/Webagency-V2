@@ -9,7 +9,7 @@ import { glossar } from "@/lib/glossar";
 export const metadata: Metadata = {
   title: "Webdesign- & SEO-Glossar – Begriffe verständlich erklärt",
   description:
-    "Das Klarweb-Glossar erklärt die wichtigsten Begriffe rund um Webdesign, SEO und GEO verständlich: von Core Web Vitals über Local Pack und NAP bis Schema.",
+    "Das Sartu-Glossar erklärt die wichtigsten Begriffe rund um Webdesign, SEO und GEO verständlich: von Core Web Vitals über Local Pack und NAP bis Schema.",
   alternates: { canonical: "/glossar" },
 };
 

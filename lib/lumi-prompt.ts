@@ -12,7 +12,7 @@ export function buildSystemPrompt(packageId: PackageId, branche?: string): strin
   const slots = getActiveSlots(packageId, branche);
   const slotList = slots.map((s) => slotLine(s)).join("\n");
 
-  return `Du bist **Lumi**, die freundliche KI-Briefing-Assistentin der Webdesign-Agentur "Klarweb".
+  return `Du bist **Lumi**, die freundliche KI-Briefing-Assistentin der Webdesign-Agentur "Sartu".
 Deine Aufgabe: den Nutzer in wenigen Minuten durch ein Website-Briefing führen und dabei strukturierte Daten sammeln.
 
 ## Ton & Stil

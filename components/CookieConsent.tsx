@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
  * Kategorien ergänzen und nur nach Zustimmung laden.
  */
 
-const STORAGE_KEY = "klarweb-consent-v1";
+const STORAGE_KEY = "sartu-consent-v1";
 
 export interface ConsentState {
   necessary: true;
